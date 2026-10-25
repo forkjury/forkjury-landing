@@ -433,6 +433,7 @@
     footer a { color: var(--accent); }
     .footer-badges { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
     .footer-badge { font-size: 13px; color: var(--text-secondary); }
+    .footer-dot { color: #C8C0B4; font-weight: 700; margin: 0 0.15em; }
 
     /* ── WA BTN ── */
     .wa-btn {
@@ -500,6 +501,7 @@
       .footer-badges { gap: 0.6rem; flex-wrap: nowrap; }
       .footer-badge { font-size: 10.5px; white-space: nowrap; }
       .footer-privacy-links { display: block; margin-top: 1.25rem; }
+      .footer-dot-lead { display: none; }
     }
     @media (max-width: 480px) {
       h1 { letter-spacing: -1px; }
@@ -901,9 +903,9 @@
       <span class="footer-badge">&#128737;&#65039; Your data is private</span>
     </div>
     <div style="margin-bottom:0.5rem">
-      &copy; 2026 <span style="color:var(--text);font-weight:600">ForkJury&trade;</span>. Review management for restaurants &middot; <a href="https://www.forkjury.com">forkjury.com</a><span class="footer-privacy-links"> <a href="privacy.html" style="color:var(--text-secondary)">Privacy Policy</a> &middot; <a href="terms.html" style="color:var(--text-secondary)">Terms of Service</a></span>
+      &copy; 2026 <span style="color:var(--text);font-weight:600">ForkJury&trade;</span>. Review management for restaurants <span class="footer-dot">&middot;</span> <a href="https://www.forkjury.com">forkjury.com</a><span class="footer-privacy-links"> <span class="footer-dot footer-dot-lead">&middot;</span> <a href="privacy.html" style="color:var(--text-secondary)">Privacy Policy</a> <span class="footer-dot">&middot;</span> <a href="terms.html" style="color:var(--text-secondary)">Terms of Service</a></span>
     </div>
-    <div style="font-size:11px;color:var(--text-secondary);margin-top:1.25rem">All rights reserved &middot; Built for independent restaurant owners</div>
+    <div style="font-size:11px;color:var(--text-secondary);margin-top:1.25rem">All rights reserved <span class="footer-dot">&middot;</span> Built for independent restaurant owners</div>
   </footer>
 
   <!-- Free Trial -->
