@@ -46,21 +46,22 @@
   </div>
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: September 2026</p>
+    <p class="updated">Last updated: October 2026</p>
 
     <p><strong>ForkJury&trade;</strong> ("we", "our", or "us") operates the online platform available at forkjury.com (the "Service"). This Privacy Policy explains how we collect, use, store, and protect your information when you use our Service. By creating an account or using the Service, you agree to the practices described in this Policy.</p>
 
     <div class="highlight">
-      <p><strong>We never store your passwords.</strong> Authentication is handled exclusively through official Google and Meta servers via OAuth 2.0. Your login credentials never pass through our systems.</p>
+      <p><strong>We never see or store your Google, Facebook or Yelp passwords.</strong> Connecting those accounts is handled through the official OAuth 2.0 flows of Google and Meta, so those credentials never pass through our systems. If you create a ForkJury account with an email and password, your ForkJury password is stored only as a salted one-way hash (bcrypt), never in readable form.</p>
     </div>
 
     <h2>1. Information We Collect</h2>
     <p>When you use ForkJury, we collect the following categories of information:</p>
     <ul>
-      <li><strong>Account information:</strong> your name, email address, and business name provided during registration.</li>
+      <li><strong>Account information:</strong> your name, email address, and business name provided during registration, and, if you sign up with an email instead of Google, a password hash (never the password itself). If you turn on two-factor authentication, we also store the secret needed to verify your codes, encrypted.</li>
       <li><strong>OAuth tokens:</strong> access tokens provided by Google and Meta after you explicitly authorize the connection. These tokens are used solely to read and respond to public review data on your behalf.</li>
       <li><strong>Review data:</strong> public ratings and reviews from your Google Business Profile and Facebook Page that automatically sync with the Service, plus any Yelp reviews you choose to add manually.</li>
       <li><strong>Usage data:</strong> information about how you interact with our platform, such as features used, response actions taken, and session activity, used exclusively to improve the Service.</li>
+      <li><strong>Technical data:</strong> your IP address and basic browser information, which appear in our server logs and are used to keep the Service secure and to detect abuse (for example, repeated failed logins or automated sign-ups).</li>
       <li><strong>Billing information:</strong> your subscription status and billing history. Payment card details are handled exclusively by Lemon Squeezy, our payment processor, and never stored by ForkJury.</li>
     </ul>
 
@@ -101,17 +102,21 @@
       <li><strong>Lemon Squeezy:</strong> payment processing and subscription management, acting as our Merchant of Record.</li>
       <li><strong>Anthropic:</strong> AI-powered review response generation and review content analysis (such as identifying frequently mentioned dishes or staff members). Data submitted to Anthropic is subject to their data processing terms and is not used to train their models.</li>
       <li><strong>Railway:</strong> cloud infrastructure and database hosting.</li>
+      <li><strong>Resend:</strong> delivery of the emails the Service sends (account verification, password resets, alerts about new or negative reviews, weekly summaries and reports). Alert emails can include the text of a review.</li>
+      <li><strong>Cloudflare Turnstile:</strong> a bot-protection check on our sign-up, log-in and password-reset forms. It may process your IP address and technical characteristics of your browser to tell people from automated programs, and we do not use it for advertising.</li>
+      <li><strong>Vercel and Netlify:</strong> hosting of this public website (forkjury.com). They process standard web server data such as IP addresses when you visit these pages.</li>
+      <li><strong>Zoho Mail:</strong> our support mailbox. Messages you send to info@forkjury.com are stored there.</li>
       <li><strong>Legal requirements:</strong> we may disclose information if required by applicable law, court order, or to protect the rights and safety of our users or the public.</li>
     </ul>
 
     <h2>6. Data Retention</h2>
-    <p>We retain your account information and synced review data for as long as your account remains active. If you cancel your account or request deletion, your personal data will be permanently deleted within 30 days of the request. Aggregated and anonymized data may be retained for analytical purposes.</p>
+    <p>We retain your account information and synced review data for as long as your account remains active. If you cancel your account or request deletion, your personal data will be permanently deleted within 30 days of the request. Aggregated and anonymized data may be retained for analytical purposes. We also keep encrypted daily backups of our database for disaster recovery only; data you asked us to delete can remain inside those encrypted backups for up to 60 additional days until they are rotated out.</p>
 
     <h2>7. Security</h2>
-    <p>We implement industry-standard security measures to protect your information, including SSL/TLS encryption for all data in transit and encrypted storage for data at rest. Our platform is hosted on Railway, a cloud infrastructure provider. We regularly review our security practices and update them as needed.</p>
+    <p>We implement industry-standard security measures to protect your information, including SSL/TLS encryption for all data in transit and encrypted storage for data at rest. The access tokens we hold for your Google and Facebook connections and your two-factor secret are encrypted with AES-256-GCM before they are stored, passwords are stored only as bcrypt hashes, and two-factor authentication is available for every account. Our platform is hosted on Railway, a cloud infrastructure provider. We regularly review our security practices and update them as needed.</p>
 
     <h2>8. Cookies</h2>
-    <p>ForkJury uses only session cookies that are strictly necessary for authentication and to maintain your logged-in state. We do not use tracking, analytics, or advertising cookies of any kind.</p>
+    <p>ForkJury uses only session cookies that are strictly necessary for authentication and to maintain your logged-in state. We do not use tracking, analytics, or advertising cookies of any kind. The bot-protection check described above (Cloudflare Turnstile) runs only on the sign-up, log-in and password-reset pages.</p>
 
     <h2>9. Your Rights</h2>
     <p>You have the following rights with respect to your personal data:</p>
