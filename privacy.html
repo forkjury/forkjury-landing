@@ -61,6 +61,7 @@
       <li><strong>OAuth tokens:</strong> access tokens provided by Google and Meta after you explicitly authorize the connection. These tokens are used solely to read and respond to public review data on your behalf.</li>
       <li><strong>Review data:</strong> public ratings and reviews from your Google Business Profile and Facebook Page that automatically sync with the Service, plus any Yelp reviews you choose to add manually.</li>
       <li><strong>Usage data:</strong> information about how you interact with our platform, such as features used, response actions taken, and session activity, used exclusively to improve the Service.</li>
+      <li><strong>Sign-up source:</strong> if you reach the sign-up page through one of our own labelled links (for example in a social media post or an email from us), we save a short label of that link (such as &ldquo;ig&rdquo;) with your account, only to learn which of our channels brings people to ForkJury. It is a label of our link, not information about you.</li>
       <li><strong>Technical data:</strong> your IP address and basic browser information, which appear in our server logs and are used to keep the Service secure and to detect abuse (for example, repeated failed logins or automated sign-ups).</li>
       <li><strong>Billing information:</strong> your subscription status and billing history. Payment card details are handled exclusively by Lemon Squeezy, our payment processor, and never stored by ForkJury.</li>
     </ul>
@@ -83,7 +84,7 @@
       <li>We do <strong>not</strong> collect payment card details directly. All payments are processed securely through Lemon Squeezy.</li>
       <li>We do <strong>not</strong> use your data to train AI models. We contractually prohibit Anthropic from using your data to train or improve their models.</li>
       <li>We do <strong>not</strong> sell, rent, or trade your personal information to any third party for marketing purposes.</li>
-      <li>We do <strong>not</strong> use tracking or advertising cookies.</li>
+      <li>We do <strong>not</strong> use analytics or advertising cookies, and we do not track you across other websites.</li>
     </ul>
 
     <h2>4. Google, Meta and Yelp Data Usage</h2>
@@ -116,7 +117,7 @@
     <p>We implement industry-standard security measures to protect your information, including SSL/TLS encryption for all data in transit and encrypted storage for data at rest. The access tokens we hold for your Google and Facebook connections and your two-factor secret are encrypted with AES-256-GCM before they are stored, passwords are stored only as bcrypt hashes, and two-factor authentication is available for every account. Our platform is hosted on Railway, a cloud infrastructure provider. We regularly review our security practices and update them as needed.</p>
 
     <h2>8. Cookies</h2>
-    <p>ForkJury uses only session cookies that are strictly necessary for authentication and to maintain your logged-in state. We do not use tracking, analytics, or advertising cookies of any kind. The bot-protection check described above (Cloudflare Turnstile) runs only on the sign-up, log-in and password-reset pages.</p>
+    <p>ForkJury uses session cookies that are strictly necessary for authentication and to maintain your logged-in state. In addition, only if you arrive through one of our labelled links and press &ldquo;Sign up with Google&rdquo;, two small first-party cookies hold the label of that link for up to 30 minutes so it can be saved with your new account; they contain no personal information, are removed as soon as you return from Google, and are not shared with anyone. We do not use analytics or advertising cookies of any kind. The bot-protection check described above (Cloudflare Turnstile) runs only on the sign-up, log-in and password-reset pages.</p>
 
     <h2>9. Your Rights</h2>
     <p>You have the following rights with respect to your personal data:</p>
