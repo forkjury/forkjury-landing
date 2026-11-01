@@ -297,6 +297,12 @@
     /* plan label and its icon on one row (icon to the right of the label) */
     .step-head { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
     .step-head .step-icon { display: flex; margin-bottom: 0; line-height: 0; }
+    /* "How it works": number and icon on one row on wide screens too (phones already do this, see the 768px block) */
+    @media (min-width: 769px) {
+      .step-num-row { display: flex; align-items: center; gap: 14px; margin-bottom: 1.25rem; }
+      .step-num-row .step-num { margin-bottom: 0; }
+      .step-num-row .step-icon { display: flex; margin-bottom: 0; line-height: 0; }
+    }
     .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
     .step p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; font-weight: 300; }
     .step-mini { margin-top: auto; background: #080D18; border: 1px solid var(--border); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 140px; overflow: hidden; }
