@@ -294,6 +294,9 @@
     }
     .step:hover .step-num { color: var(--accent); }
     .step-icon { margin-bottom: 1rem; }
+    /* plan label and its icon on one row (icon to the right of the label) */
+    .step-head { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+    .step-head .step-icon { display: flex; margin-bottom: 0; line-height: 0; }
     .step h3 { font-size: 14px; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.4; }
     .step p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; font-weight: 300; }
     .step-mini { margin-top: auto; background: #080D18; border: 1px solid var(--border); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 140px; overflow: hidden; }
@@ -611,9 +614,11 @@
       </div>
       <div class="steps-list">
         <div class="step">
-          <span style="display:inline-block;align-self:flex-start;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:1rem">Starter</span>
-          <div class="step-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <div class="step-head">
+            <span style="display:inline-block;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px">Starter</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
           </div>
           <h3>Know your AI visibility score</h3>
           <p>See exactly how your rating compares to what ChatGPT, Perplexity and Gemini look for before recommending a restaurant to someone.</p>
@@ -629,9 +634,11 @@
           </div>
         </div>
         <div class="step">
-          <span style="display:inline-block;align-self:flex-start;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:1rem">Pro</span>
-          <div class="step-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          <div class="step-head">
+            <span style="display:inline-block;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px">Pro</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+            </div>
           </div>
           <h3>Turn reviews into content</h3>
           <p>AI finds the dishes and staff members your customers rave about by name, one click away from a ready-to-post Instagram image.</p>
@@ -644,9 +651,11 @@
           </div>
         </div>
         <div class="step">
-          <span style="display:inline-block;align-self:flex-start;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px;margin-bottom:1rem">Business</span>
-          <div class="step-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="step-head">
+            <span style="display:inline-block;background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent-border);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:3px">Business</span>
+            <div class="step-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
           </div>
           <h3>Outrank the restaurant next door</h3>
           <p>Get website code that tells Google and AI assistants your real rating, and see exactly how you compare to nearby restaurants.</p>
