@@ -979,5 +979,102 @@
     })();
   </script>
 
+  <!-- Partner (affiliate) referrals. Only when a visitor arrives through a partner link (?aff=CODE) does this load the
+       referral tool of our payment processor, Lemon Squeezy, which gives the visit a random referral identifier. The
+       identifier is handed to the sign-up page (?affc=...) so the partner can be credited if the person subscribes
+       later, and kept in this browser until it expires so that a later visit still passes it on. Visits without a
+       partner link, or without a stored identifier, load nothing and change nothing. Every step is guarded: if
+       anything fails the sign-up links simply stay as they are. -->
+  <script>
+    (function () {
+      try {
+        var STORE = 'forkjury';
+        var CODE_RE = /^[A-Za-z0-9_-]{1,64}$/;
+        var CLICK_RE = /^[A-Za-z0-9_.~-]{3,100}$/;
+        var KEY = 'fj_aff';
+        var MAX_AGE = 90 * 24 * 60 * 60 * 1000;
+        var SIGNUP = 'a[href^="https://app.forkjury.com/register.html"]';
+
+        function applyClick(id) {
+          var links = document.querySelectorAll(SIGNUP);
+          for (var i = 0; i < links.length; i++) {
+            try {
+              var u = new URL(links[i].getAttribute('href'));
+              u.searchParams.set('affc', id);
+              links[i].setAttribute('href', u.toString());
+            } catch (e) {}
+          }
+        }
+
+        var code = '';
+        try { code = String(new URLSearchParams(window.location.search).get('aff') || '').trim(); } catch (e) {}
+        if (!CODE_RE.test(code)) code = '';
+
+        if (!code) {
+          // No partner link on this visit: pass on an identifier kept from an earlier one, if it is still valid.
+          try {
+            var o = JSON.parse(localStorage.getItem(KEY) || 'null');
+            if (o && typeof o.c === 'string' && CLICK_RE.test(o.c) && typeof o.x === 'number' && o.x > Date.now()) applyClick(o.c);
+          } catch (e) {}
+          return;
+        }
+
+        // Partner link: ask the referral tool for the identifier, and hold a very quick click on a sign-up link
+        // for a moment (never more than 3 seconds) so the identifier is already on the link when it is followed.
+        var waiting = true, started = false, finish, timer;
+        var ready = new Promise(function (resolve) { finish = resolve; });
+        function done() {
+          if (!waiting) return;
+          waiting = false;
+          clearTimeout(timer);
+          finish();
+        }
+        timer = setTimeout(done, 3000);
+
+        document.addEventListener('click', function (ev) {
+          if (!waiting) return;
+          try {
+            if (ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+            var a = ev.target && ev.target.closest ? ev.target.closest(SIGNUP) : null;
+            if (!a || a.target === '_blank') return;
+            ev.preventDefault();
+            ready.then(function () { window.location.href = a.href; });
+          } catch (e) {}
+        }, true);
+
+        window.lemonSqueezyAffiliateConfig = {
+          store: STORE,
+          trackOnLoad: false,
+          onReady: function (tool) {
+            if (started) return;
+            started = true;
+            try { tool.Track(code); } catch (e) { done(); }
+          },
+          onTrack: function (d) {
+            try {
+              var id = d && d.click !== undefined && d.click !== null ? String(d.click) : '';
+              if (CLICK_RE.test(id)) {
+                var exp = Date.parse(d.expires);
+                if (!isFinite(exp) || exp <= Date.now() || exp > Date.now() + MAX_AGE) exp = Date.now() + MAX_AGE;
+                try { localStorage.setItem(KEY, JSON.stringify({ c: id, x: exp })); } catch (e) {}
+                applyClick(id);
+              }
+            } catch (e) {}
+            done();
+          }
+        };
+
+        var tag = document.createElement('script');
+        tag.src = 'https://lmsqueezy.com/affiliate.js';
+        tag.async = true;
+        tag.onload = function () {
+          try { if (typeof window.createLemonSqueezyAffiliate === 'function') window.createLemonSqueezyAffiliate(); } catch (e) { done(); }
+        };
+        tag.onerror = done;
+        document.head.appendChild(tag);
+      } catch (e) {}
+    })();
+  </script>
+
 </body>
 </html>
